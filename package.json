@@ -1,0 +1,45 @@
+{
+  "name": "intranet",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NEO Empresarial second intranet",
+  "dependencies": {
+    "create-react-app": "^2.1.1"
+  },
+  "devDependencies": {
+    "material-ui": "^0.20.1",
+    "cross-env": "^5.2.0",
+    "eslint-config-prettier": "^4.0.0",
+    "parcel-bundler": "^1.12.1",
+    "prettier": "^1.16.1"
+  },
+  "scripts": {
+    "i": "npm run install-dependencies",
+    "install-dependencies": "npm i && npm i --prefix frontend",
+    "start": "cd frontend && npm run start",
+    "heroku-prebuild": "npm run i",
+    "build": "cd frontend && npm run build",
+    "test": "cd frontend && npm run test --env=jsdom",
+    "eject": "cd frontend && npm run eject",
+    "prod": "cd frontend && npm run prod",
+    "format": "prettier --write \"frontend/src/**/*.{js,jsx}\"",
+    "lint": "eslint \"frontend/src/**/*.{js,jsx}\" --quiet"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/neo-empresarial/intranet"
+  },
+  "author": "LAB",
+  "license": "MIT",
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 ChromeAndroid versions",
+    "last 2 Firefox versions",
+    "last 2 FirefoxAndroid versions",
+    "last 2 Safari versions",
+    "last 2 iOS versions",
+    "last 2 Edge versions",
+    "last 2 Opera versions",
+    "last 2 OperaMobile versions"
+  ]
+}
