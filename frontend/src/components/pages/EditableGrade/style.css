@@ -1,0 +1,155 @@
+#profile-tittle {
+    color: white;
+    padding: 8px 0px 0px 150px;
+}
+
+.meuperfil {
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.personal-information {
+    grid-area: meuperfil;
+    display: grid;
+}
+
+.grid-container-profile {
+    margin-top: 1%;
+    display: grid;
+    grid-column-gap: 50px;
+    grid-row-gap: 25px;
+    grid-template-areas:
+            '... meuperfil meuperfil cargos cargos ...'
+            '... meuperfil meuperfil cargos cargos ...'
+            '... meuperfil meuperfil cargos cargos ...'
+            '... meuperfil meuperfil cargos cargos ...'
+            '... meuperfil meuperfil cargos cargos ...'
+            '... meuperfil meuperfil cargos cargos ...'
+            '... meuperfil meuperfil cargos cargos ...'
+            '... meuperfil meuperfil cargos cargos ...'
+            '... meuperfil meuperfil hourcard hourcard ...'
+            '... meuperfil meuperfil hourcard hourcard ...'
+            '... meuperfil meuperfil hourcard hourcard ...'
+            '... meuperfil meuperfil hourcard hourcard ...'
+            '... meuperfil meuperfil hourcard hourcard ...'
+            '... meuperfil meuperfil hourcard hourcard ...'
+            '... meuperfil meuperfil hourcard hourcard ...'
+            '... meuperfil meuperfil hourcard hourcard ...';
+}
+
+.meuperfil input {
+    width: 75%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+    outline: none;
+}
+/*          CARGOS          */
+#job {
+    max-height: 350px;
+    grid-area: cargos;
+    background-color: #fcfcfc;
+    display: grid;
+    box-shadow: 4px 4px 8px 4px rgba(0,0,0,0.2);
+}
+
+#job-tittle {
+    color: #666;
+    padding: 25px;
+}
+
+#edit-job {
+    color: white;
+    background-color: #555;
+    border: none;
+    width: 70%;
+    margin-left: 15%;
+    padding: 3px;
+}
+
+#semester-input {
+    background-color: #e5e2e2;
+    border: none;
+    width: 70%;
+    margin-left: 15%;
+    padding: 15px;
+}
+
+#job-selector {
+    background-color: #e5e2e2;
+    border: none;
+    width: 70%;
+    margin-left: 15%;
+    padding: 15px;
+}
+
+#add-job {
+    color: white;
+    background-color: #555;
+    border: none;
+    padding: 3px 20px;
+    margin-top: 3%;
+    margin-left: 64%;
+}
+/*--------------------------*/
+#hour-card {
+    min-height: 250px;
+    max-height: 350px;
+    grid-area: hourcard;
+    background-color: #fcfcfc;
+    display: grid;
+    box-shadow: 4px 4px 8px 4px rgba(0,0,0,0.2);
+}
+
+#tittle {
+    text-align: left;
+    font-weight: normal;
+    border: none;
+    font-size: 22px;
+    color: white;
+    background-color: #555;
+    padding: 8px 8px 8px 35px;
+}
+
+
+.cancel {
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: #ff720a;
+    position: relative;
+    left: 100px;
+    top: 15px;
+    padding: 5px 40px 5px 40px;
+}
+
+.confirm {
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: #ff720a;
+    position: relative;
+    left: 670px;
+    top: 15px;
+    padding: 5px 40px 5px 40px;
+}
+.information {
+    font-size: 18px;
+    border: 1px  #dddddd;
+    text-align: left;
+    padding: 8px 8px 8px 50px;
+}
+
+.answer {
+    border: 1px  #dddddd;
+    text-align: right;
+    padding: 8px 50px 8px 8px;
+}
+
+.meuperfil tr:nth-child(even) {
+    background-color: #fcfcfc;
+}
+
+.meuperfil tr:nth-child(odd) {
+    background-color: #e5e2e2;
+}

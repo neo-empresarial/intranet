@@ -1,0 +1,30 @@
+.edit-cell {
+    border-collapse: collapse;
+    display: grid;
+    text-align: center;
+    grid-template-columns: 80% 20%;
+}
+
+.edit-input {
+    border: none;
+    border-left: 1px solid gainsboro;
+    border-bottom: 1px solid gainsboro;
+    text-align: center;
+    outline-color: #ff720a;
+}
+
+.edit-button {
+    border: none;
+    border-bottom: 1px solid gainsboro;
+    background-color: transparent;
+    outline-color: #ff720a;
+    display: grid;
+}
+
+.edit-button img {
+    justify-self: center;
+    align-self: center;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}

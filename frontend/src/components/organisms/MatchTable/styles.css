@@ -1,0 +1,44 @@
+.match-table-grid {
+    width: 980px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    color: black;
+    background-color: white;
+}
+
+.days-grid {
+    display: grid;
+    width: 160px;
+    grid-template-columns: repeat(2, 1fr);
+
+}
+
+.days-grid div { /* Multiplos de 110*/ 
+    width: 90px;
+    border-collapse: collapse;
+    
+}
+
+.hour {
+    width: 80px;
+    justify-self: end;
+    text-align: center;
+}
+
+.days {
+    text-align: center;
+    width: 180px;
+}
+
+.match-jobHour {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.match-table-tittle {
+    height: 30px;
+    margin: 0;
+    vertical-align: middle;
+    line-height: 30px;
+    border: 1px solid black;
+}

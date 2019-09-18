@@ -1,0 +1,35 @@
+.out-circle {
+    display: grid;
+    width: 70px;
+    height: 70px;
+    background: #ef7b7b;
+    border-radius: 50%;
+    justify-self: center;
+    align-self: center;
+    justify-items: center;
+    align-items: center;
+    font-size: 16px;
+}
+
+.in-circle {
+    margin: auto;
+    width: 55px;
+    height: 55px;
+    background: white;
+    border-radius: 50%;
+    justify-self: center;
+    align-self: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.neosons-name {
+    margin: auto;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 45px;
+    justify-self: center;
+    align-self: center;
+    justify-items: center;
+    align-items: center;
+}

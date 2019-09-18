@@ -1,0 +1,38 @@
+.timecontrol-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0 13%;
+}
+
+.timecontrol-tittle {
+    font-size: 28px;
+    color: white;
+    padding: 8px 8px 14px 0;
+}
+
+.timecontrol-grid .hourRow-grid {
+    color: #ff720a;
+    font-size: 21px;
+}
+
+#first-line {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#last-line {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.timecontrol-grid .hourRow-grid ~.hourRow-grid {
+    color: black;
+}
+
+.timecontrol-grid .hourRow-grid:nth-child(even) {
+    background-color: #fcfcfc;
+}
+
+.timecontrol-grid .hourRow-grid:nth-child(odd) {
+    background-color: #e5e2e2;
+}

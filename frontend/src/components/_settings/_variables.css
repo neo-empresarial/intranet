@@ -1,0 +1,21 @@
+:root {
+  /* 
+  * Colors
+  */
+  --neo-orange: #ff720a;
+  --box-white: #fcfcfc;
+  --shadow: rgba(252, 252, 252, 0.2);
+
+  --blur: blur(3px);
+  /*
+  * Fonts
+  */
+  --base-font-family: "Open Sans";
+  --base-font-color: #919191;
+  --selected-title-color: #494949;
+  --semi-bold-weight: 500;
+  --regular-weight: 400;
+  --font-size-section: 20px;
+  --font-size-regular: 16px;
+  --font-size-subsection: 12px;
+}

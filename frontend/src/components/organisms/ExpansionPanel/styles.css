@@ -1,0 +1,88 @@
+@import "../../_settings/_variables.css";
+
+.section {
+  font-size: var(--font-size-section);
+  font-weight: var(--semi-bold-weight);
+  /* border-top: 0.5px solid rgba(200, 200, 200, 0.8);
+  border-bottom: 0.5px solid rgba(200, 200, 200, 0.8); */
+  box-shadow: 0 -0.5px 1px rgba(0, 0, 0, 0.2) inset,
+    0 0.5px 1px rgba(0, 0, 0, 0.2) inset;
+  display: flex;
+  font-size: 16px;
+  flex-flow: nowrap column;
+  justify-content: flex-start;
+}
+
+.section--selected button {
+  font-weight: 600;
+  color: var(--selected-title-color);
+}
+
+.icon--section {
+  width: 18px;
+  height: 18px;
+}
+
+.panel {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  width: 100%;
+  background-color: inherit;
+  cursor: pointer;
+  border: 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  transition: border 100ms ease;
+}
+
+.panel img {
+  margin-right: 10px;
+}
+
+.panel:focus {
+  outline: none;
+}
+
+.panel:hover {
+  border-left: 10px solid #919191;
+}
+
+.selected {
+  border-left: 10px solid var(--neo-orange) !important;
+}
+
+.subsections {
+  font-size: var(--font-size-subsection);
+  margin-left: 60px;
+  height: auto;
+  overflow: hidden;
+  transform: scaleY(1);
+  transform-origin: top;
+  transition: height 150ms ease-in;
+}
+
+.subsections p {
+  cursor: pointer;
+}
+
+.subsection--selected {
+  font-weight: 600;
+  color: var(--neo-orange);
+  font-size: 14px;
+}
+
+.chevron--section {
+  width: 10px;
+  position: absolute;
+  right: 10px;
+}
+
+.chevron--open {
+  transform: rotate(-90deg);
+}
+
+.chevron--closed {
+  transform: rotate(0deg);
+}

@@ -1,0 +1,78 @@
+@import "../../_settings/_base.css";
+
+.login {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  min-width: 410px;
+  height: 392px;
+  align-self: center;
+  box-shadow: 0 0 1.2px #444444;
+}
+
+@media (min-width: 500px) {
+  .login {
+    min-width: 300px;
+  }
+}
+
+.login h1 {
+  font-size: large;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.login h2 {
+  font-size: medium;
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.login form {
+  display: flex;
+  flex-direction: column;
+  /* margin: 2.8em 0 0 0; */
+  align-items: center;
+  /* width: 70%; */
+}
+
+.form-group {
+  width: 75%;
+}
+.form-group input {
+  margin-top: 1.2em;
+}
+
+.button {
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.btn-login {
+  background-color: var(--neo-orange);
+  color: white;
+  margin-top: 1em;
+  width: 75%;
+}
+
+.login-header {
+  display: flex;
+  flex-direction: column;
+  height: 187px;
+}
+
+.login-header img {
+  align-self: center;
+}

@@ -1,0 +1,23 @@
+@import './_variables.css';
+@import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--box-white);
+  overflow-x: hidden;
+  font-family: var(--base-font-family);
+  font-size: var(--font-size-regular);
+  font-weight: var(--regular-weight);
+  color: var(--base-fonto-color);
+}
+
+#root {
+  height: 100%;
+}
+
+.hide {
+  display: none;
+}
