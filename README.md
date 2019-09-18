@@ -50,7 +50,15 @@ npm install --only=development
 
 ## Usage
 
-To run the frontend part of intranet you run:
+Use the following commands in the root folder of the project.
+
+Run the frontend part of intranet with:
+
+```bash
+npm run dev
+```
+
+You run the build option with:
 
 ```bash
 npm run start
