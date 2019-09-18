@@ -16,6 +16,7 @@
   "scripts": {
     "i": "npm run install-dependencies",
     "install-dependencies": "npm i && npm i --prefix frontend",
+    "dev": "cd frontend && npm run dev",
     "start": "cd frontend && npm run start",
     "heroku-prebuild": "npm run i",
     "build": "cd frontend && npm run build",
