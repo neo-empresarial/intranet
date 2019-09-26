@@ -46,6 +46,7 @@ PyJWT = "==1.7.1"
 pymysql = "*"
 cryptography = "*"
 simplejson = "*"
+psycopg2 = "*"
 
 [requires]
 python_version = "3.6"

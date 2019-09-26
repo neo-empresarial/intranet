@@ -11,9 +11,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 from os.path import dirname, join, exists, abspath
 import environ
-import pymysql
-
-pymysql.install_as_MySQLdb()
+import psycopg2
 
 # Load operating system env variables and prepare to use them
 env = environ.Env()
@@ -108,7 +106,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': env('DB_NAME'),
         'USER': env('DB_USER'),
         'PASSWORD': env('DB_PASSWORD'),
