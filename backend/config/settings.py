@@ -59,6 +59,7 @@ THIRD_PARTY_APP = [
 ]
 
 PROJECT_APPS = [
+    'people_control.apps.PeopleControlConfig'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APP + PROJECT_APPS
