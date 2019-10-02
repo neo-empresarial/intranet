@@ -17,6 +17,6 @@ class Person(models.Model):
     linkedin = models.CharField(max_length=240, blank=True)
     observation = models.CharField(max_length=240, blank=True)
     gender = models.CharField(choices=GENDER_CHOICES, max_length=1, blank=True)
-    
+
     def __str__(self):
         return self.name
