@@ -45,6 +45,10 @@ pymysql = "*"
 cryptography = "*"
 simplejson = "*"
 psycopg2 = "*"
+gunicorn = "*"
+whitenoise = "*"
+django-heroku = "*"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.6"
