@@ -1,14 +1,15 @@
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.conf.urls import url
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
+from django.shortcuts import redirect
 from rest_framework import routers
 import people_control.views
 from rest_framework.authtoken.views import obtain_auth_token
 from rest_auth.registration.views import VerifyEmailView, RegisterView
 from allauth.account.views import confirm_email
-from .views import index
+from .views import index, redirect_view
 
 router = routers.DefaultRouter()
 router.register(r'users', people_control.views.UserViewSet)
@@ -16,11 +17,11 @@ router.register(r'groups', people_control.views.GroupViewSet)
 router.register(r'person', people_control.views.PersonViewSet)
 
 urlpatterns = [
-    path('', index, name='index'),
-    path('', include(router.urls)),
+    path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
     path('api-auth/login/', obtain_auth_token, name='api_auth'),
     path('api-auth/registration/', include('rest_auth.registration.urls')),
     path('api-auth/logout/', people_control.views.LogoutView.as_view(), name='logout'),
     path('login/', people_control.views.loginUser, name='login'),
+    re_path(r'^(?:.*)/?$', index, name='index'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

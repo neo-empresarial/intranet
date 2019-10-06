@@ -25,7 +25,7 @@ if exists(env_file):
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = dirname(dirname(abspath(__file__)))
-TEMPLATES_DIR = join(BASE_DIR, 'build', 'main', 'templates')
+TEMPLATES_DIR = join(BASE_DIR, '..', 'frontend', 'build')
 
 # Quick-start development settings - unsuitable for production
 SECRET_KEY = env('DJANGO_SECRET_KEY',
@@ -172,7 +172,7 @@ STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, '..', 'frontend', 'build', 'static'),
 )
 
 MEDIA_ROOT = join(BASE_DIR, 'build', 'media')
