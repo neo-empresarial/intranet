@@ -32,7 +32,7 @@ SECRET_KEY = env('DJANGO_SECRET_KEY',
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DJANGO_DEBUG', False)
 
-ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS',[])
+ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', [])
 # Application definition
 
 DJANGO_APPS = [
@@ -133,10 +133,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 CORS_ORIGIN_ALLOW_ALL = True
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:3000',
-)
-CSRF_TRUSTED_ORIGINS = ['localhost:3000']
+CORS_ORIGIN_WHITELIST = ('http://localhost:3000', 'http://localhost:8000',
+                         'http://127.0.0.1:8000', 'http://127.0.0.1:3000')
+CSRF_TRUSTED_ORIGINS = ['localhost:3000', 'localhost:8000',
+                        'http://127.0.0.1:8000', 'http://127.0.0.1:3000']
 
 
 # Internationalization
@@ -152,6 +152,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+ACCOUNT_EMAIL_VERIFICATION = "none"
 # Email settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
@@ -176,11 +177,10 @@ SESSION_COOKIE_AGE = 60 * 60 * 24 * 30
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-       'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-   ),
-   'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAdminUser',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
-   ),
+    ),
 }
