@@ -13,7 +13,7 @@ django-filter = "==1.1.0"
 djangorestframework-jwt = "==1.11.0"
 django-cors-headers = "==3.1.0"
 django-allauth = "==0.35.0"
-django-rest-auth = "==0.9.3"
+django-rest-auth = {extras = ["with_social"],version = "*"}
 olefile = "==0.44"
 flake8 = "==3.5.0"
 Django = "==2.0.12"
