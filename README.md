@@ -10,7 +10,9 @@ The program has the following requirements that needs to be installed before you
 - nvm
 - Python
 - pyenv
-- MySQL
+- postgresql
+- python-psycopg2
+- libpq-dev
 
 ## Installation
 

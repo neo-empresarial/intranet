@@ -5,6 +5,7 @@ verify_ssl = true
 
 [dev-packages]
 pylint = "*"
+pylint-django = "*"
 
 [packages]
 djangorestframework = "==3.9.1"
@@ -12,15 +13,13 @@ django-filter = "==1.1.0"
 djangorestframework-jwt = "==1.11.0"
 django-cors-headers = "==3.1.0"
 django-allauth = "==0.35.0"
-django-rest-auth = "==0.9.3"
+django-rest-auth = {extras = ["with_social"],version = "*"}
 olefile = "==0.44"
 flake8 = "==3.5.0"
 Django = "==2.0.12"
 Markdown = "==3.1.1"
 Pillow = "==4.3.0"
-mysql-connector-python = "==8.0.17"
 django-environ = "==0.4.5"
-mysqlclient = "==1.4.4"
 certifi = "==2019.9.11"
 chardet = "==3.0.4"
 defusedxml = "==0.6.0"
@@ -39,13 +38,17 @@ urllib3 = "==1.25.3"
 astroid = "==2.2.5"
 isort = "==4.3.21"
 lazy-object-proxy = "==1.4.2"
-pylint = "==2.3.1"
 typed-ast = "==1.4.0"
 wrapt = "==1.11.2"
 PyJWT = "==1.7.1"
 pymysql = "*"
 cryptography = "*"
 simplejson = "*"
+psycopg2 = "*"
+gunicorn = "*"
+whitenoise = "*"
+django-heroku = "*"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.6"

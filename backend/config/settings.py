@@ -9,11 +9,11 @@ https://docs.djangoproject.com/en/1.10/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
+import os
 from os.path import dirname, join, exists, abspath
 import environ
-import pymysql
-
-pymysql.install_as_MySQLdb()
+import psycopg2
+import django_heroku
 
 # Load operating system env variables and prepare to use them
 env = environ.Env()
@@ -34,7 +34,7 @@ SECRET_KEY = env('DJANGO_SECRET_KEY',
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DJANGO_DEBUG', False)
 
-ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS',[])
+ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', [])
 # Application definition
 
 DJANGO_APPS = [
@@ -61,6 +61,7 @@ THIRD_PARTY_APP = [
 ]
 
 PROJECT_APPS = [
+    'people_control.apps.PeopleControlConfig'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APP + PROJECT_APPS
@@ -69,7 +70,7 @@ SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -79,7 +80,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
 ]
 
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = 'config.urls'
 
@@ -108,7 +109,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': env('DB_NAME'),
         'USER': env('DB_USER'),
         'PASSWORD': env('DB_PASSWORD'),
@@ -134,10 +135,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 CORS_ORIGIN_ALLOW_ALL = True
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:3000',
-)
-CSRF_TRUSTED_ORIGINS = ['localhost:3000']
+CORS_ORIGIN_WHITELIST = ('http://localhost:3000', 'http://localhost:8000',
+                         'http://127.0.0.1:8000', 'http://127.0.0.1:3000')
+CSRF_TRUSTED_ORIGINS = ['localhost:3000', 'localhost:8000',
+                        'http://127.0.0.1:8000', 'http://127.0.0.1:3000']
 
 
 # Internationalization
@@ -153,6 +154,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+ACCOUNT_EMAIL_VERIFICATION = "none"
 # Email settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
@@ -164,8 +166,13 @@ EMAIL_PORT = 587
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_ROOT = join(BASE_DIR, 'main', 'static')
+STATIC_ROOT = join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 MEDIA_ROOT = join(BASE_DIR, 'main', 'media')
 MEDIA_URL = '/main/media/'
@@ -176,11 +183,13 @@ SESSION_COOKIE_AGE = 60 * 60 * 24 * 30
 
 
 REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        # 'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.TokenAuthentication',
-        )
 }
+
+django_heroku.settings(locals())
