@@ -58,7 +58,7 @@
     "i": "npm install",
     "dev": "react-scripts start",
     "start": "npx serve -s build",
-    "build": "react-scripts build",
+    "build": "npm run i && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "prod": "npm run build && node server.js",
