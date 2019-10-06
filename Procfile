@@ -1,1 +1,2 @@
-web: gunicorn --chdir backend/ config.wsgi
+frontend: npm start
+backend: gunicorn --chdir backend/ config.wsgi
