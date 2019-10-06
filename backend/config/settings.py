@@ -25,7 +25,7 @@ if exists(env_file):
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = dirname(dirname(abspath(__file__)))
-TEMPLATES_DIR = join(BASE_DIR, 'main', 'templates')
+TEMPLATES_DIR = join(BASE_DIR, 'build', 'main', 'templates')
 
 # Quick-start development settings - unsuitable for production
 SECRET_KEY = env('DJANGO_SECRET_KEY',
@@ -44,6 +44,7 @@ DJANGO_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.sites',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
 ]
 
@@ -174,8 +175,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-MEDIA_ROOT = join(BASE_DIR, 'main', 'media')
-MEDIA_URL = '/main/media/'
+MEDIA_ROOT = join(BASE_DIR, 'build', 'media')
+MEDIA_URL = '/media/'
 LOGIN_URL = '/login'
 
 # One month

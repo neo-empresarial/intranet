@@ -8,6 +8,7 @@ import people_control.views
 from rest_framework.authtoken.views import obtain_auth_token
 from rest_auth.registration.views import VerifyEmailView, RegisterView
 from allauth.account.views import confirm_email
+from .views import index
 
 router = routers.DefaultRouter()
 router.register(r'users', people_control.views.UserViewSet)
@@ -15,6 +16,7 @@ router.register(r'groups', people_control.views.GroupViewSet)
 router.register(r'person', people_control.views.PersonViewSet)
 
 urlpatterns = [
+    path('', index, name='index'),
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
     path('api-auth/login/', obtain_auth_token, name='api_auth'),
