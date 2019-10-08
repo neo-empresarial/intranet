@@ -4,8 +4,10 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.contrib.auth import logout
-from .models import Person
-from .serializers import UserSerializer, GroupSerializer, PersonSerializer
+from .models import Alumnus, Advisor, Course, Neoson, Person
+from .serializers import AlumnusSerializer, AdvisorSerializer, CourseSerializer,\
+                         UserSerializer, GroupSerializer, PersonSerializer,\
+                         NeosonSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -22,6 +24,22 @@ class GroupViewSet(viewsets.ModelViewSet):
     """
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
+
+class AlumnusViewSet(viewsets.ModelViewSet):
+    queryset = Alumnus.objects.all()
+    serializer_class = AlumnusSerializer
+
+class AdvisorViewSet(viewsets.ModelViewSet):
+    queryset = Advisor.objects.all()
+    serializer_class = AdvisorSerializer
+
+class CourseViewSet(viewsets.ModelViewSet):
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
+
+class NeosonViewSet(viewsets.ModelViewSet):
+    queryset = Neoson.objects.all()
+    serializer_class = NeosonSerializer
 
 class PersonViewSet(viewsets.ModelViewSet):
     queryset = Person.objects.all()

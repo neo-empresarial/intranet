@@ -14,6 +14,10 @@ from .views import index, redirect_view
 router = routers.DefaultRouter()
 router.register(r'users', people_control.views.UserViewSet)
 router.register(r'groups', people_control.views.GroupViewSet)
+router.register(r'alumnus', people_control.views.AlumnusViewSet)
+router.register(r'advisor', people_control.views.AdvisorViewSet)
+router.register(r'course', people_control.views.CourseViewSet)
+router.register(r'neoson', people_control.views.NeosonViewSet)
 router.register(r'person', people_control.views.PersonViewSet)
 
 urlpatterns = [
