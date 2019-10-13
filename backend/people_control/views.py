@@ -4,10 +4,10 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.contrib.auth import logout
-from .models import Alumnus, Advisor, Course, Neoson, Person
-from .serializers import AlumnusSerializer, AdvisorSerializer, CourseSerializer,\
+from .models import Alumnus, Advisor, AssumedNeoPosition, Course, Neoson, NeoPosition, Person
+from .serializers import AlumnusSerializer, AdvisorSerializer, AssumedNeoPositionSerializer, CourseSerializer,\
                          UserSerializer, GroupSerializer, PersonSerializer,\
-                         NeosonSerializer
+                         NeosonSerializer, NeoPositionSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -44,6 +44,14 @@ class NeosonViewSet(viewsets.ModelViewSet):
 class PersonViewSet(viewsets.ModelViewSet):
     queryset = Person.objects.all()
     serializer_class = PersonSerializer
+
+class NeoPositionViewSet(viewsets.ModelViewSet):
+    queryset = NeoPosition.objects.all()
+    serializer_class = NeoPositionSerializer
+
+class AssumedNeoPositionViewSet(viewsets.ModelViewSet):
+    queryset = AssumedNeoPosition.objects.all()
+    serializer_class = AssumedNeoPositionSerializer
 
 class LogoutView(APIView):
     def get(self, request, format=None):
