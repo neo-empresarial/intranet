@@ -1,3 +1,4 @@
 from django.contrib import admin
+from .models import DayOfWeek, Request, RequestType, Schedule, TimeSlot
 
-# Register your models here.
+admin.site.register([DayOfWeek, Request, RequestType, Schedule, TimeSlot])
