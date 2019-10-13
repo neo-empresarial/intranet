@@ -6,6 +6,7 @@ from django.conf.urls.static import static
 from django.shortcuts import redirect
 from rest_framework import routers
 import people_control.views
+import time_control.views
 from rest_framework.authtoken.views import obtain_auth_token
 from rest_auth.registration.views import VerifyEmailView, RegisterView
 from allauth.account.views import confirm_email
@@ -19,6 +20,13 @@ router.register(r'advisor', people_control.views.AdvisorViewSet)
 router.register(r'course', people_control.views.CourseViewSet)
 router.register(r'neoson', people_control.views.NeosonViewSet)
 router.register(r'person', people_control.views.PersonViewSet)
+router.register(r'neo_position', people_control.views.NeoPositionViewSet)
+router.register(r'assumed_position', people_control.views.AssumedNeoPositionViewSet)
+router.register(r'day_of_the_week', time_control.views.DayOfWeekViewSet)
+router.register(r'request', time_control.views.RequestViewSet)
+router.register(r'request_type', time_control.views.RequestTypeViewSet)
+router.register(r'schedule', time_control.views.ScheduleViewSet)
+router.register(r'timeslot', time_control.views.TimeSlotViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),
