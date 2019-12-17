@@ -9,6 +9,8 @@ function handleResponse(response) {
 }
 
 const login = async (username, password) => {
+  console.log(username + " " + password)
+  
   const loginResponse = await fetch(apiUrls.loginApi, {
     method: "POST",
     headers: {
@@ -20,8 +22,9 @@ const login = async (username, password) => {
     })
   });
   const userToken = await handleResponse(loginResponse);
-  const Authorization = "Token " + userToken.key;
-
+  const Authorization = "Token " + userToken.token;
+  console.log(userToken)
+  console.log(Authorization)
   const userResponse = await fetch(apiUrls.userApi, {
     method: "GET",
     headers: {

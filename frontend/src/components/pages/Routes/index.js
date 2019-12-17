@@ -67,6 +67,7 @@ class ProjectRoutes extends Component {
                                     <LoginPage/>
                                 ) : (
                                     <Redirect to="dashboard"/>
+                                    // <LoginPage />
                                 )
                             }
                         />
