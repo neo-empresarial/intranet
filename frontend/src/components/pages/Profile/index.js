@@ -1,11 +1,13 @@
 import React, {Component} from "react";
-import {connect} from "react-redux";
+import ApiUrls from "../../../_utils/paths"
 import "./style.css";
-import uiActions from "../../../_actions/ui.actions";
-import UserCard from '../../atoms/UserCard';
-import ProfileRow from '../../atoms/ProfileRow';
+
+import {connect} from "react-redux";
 import authHeader from '../../../_utils/auth-header'
-import loggingInGif from "../../atoms/loading_gif/loggingIn.gif";
+
+import uiActions from "../../../_actions/ui.actions";
+import ProfileRow from '../../atoms/ProfileRow';
+
 
 import userPhoto from "../../atoms/icons/user-photo.svg";
 import editWhite from "../../atoms/icons/edit-white.svg";
@@ -44,109 +46,72 @@ class Profile extends Component {
             username: '',
             contact: [],
             team_member: [],
-            usernameHours: []
+            usernameHours: [],
+            neoson: []
         };
 
         this.createTableRows = this.createTableRows.bind(this);
         this.subsection = window.location.pathname.split("/").pop();
     
-        this.testeFunc = this.testeFunc.bind(this);
+        this.logoColorHandler = this.logoColorHandler.bind(this);
     }
     
     createTableRows() {
-        const tableSubjects = ['Nome:/Sigla',
-                               'Data: de Nascimento',
-                               'Gênero:',
-                               'Curso:',
-                               'Matrícula:',
-                               'País:',
-                               'Gmail:',
-                               'Skype:',
-                               'Email: Profissional:',
-                               'Email: Pessoal:',
-                               'Tel:. Profissional:',
-                               'Tel:. Pessoal:',
-                               'RG:','Banco:',
-                               'Agência:',
-                               'Conta:'];
-         const tableSAnswers = [this.state.team_member.nome+'/'+this.state.contact.sigla,
-                               this.state.contact.aniversario,
-                               this.state.team_member.genero,
-                               this.state.contact.curso,
-                               this.state.contact.matricula,
-                               this.state.team_member.pais,
-                               this.state.team_member.gmail,
-                               this.state.team_member.skype,
-                               this.state.team_member.emailProfissional,
-                               this.state.team_member.emailPessoal,
-                               this.state.team_member.telProfissional,
-                               this.state.team_member.telPessoal,
-                               this.state.contact.RG,
-                               this.state.contact.banco,
-                               this.state.contact.agencia,
-                               this.state.contact.conta];
-        let result = tableSubjects.map((content, index) => {
-            return <ProfileRow question={content}
-                               answer={tableSAnswers[index]}>{content}</ProfileRow>
-        });
-
+        const { neoson } = this.state;
+        let result = []
+        if(neoson.length !== 0) {
+            const tableSubjects = ['Nome/Sigla:',
+                                   'Data de Nascimento:',
+                                   'Gênero:',
+                                   'Curso:',
+                                   'Matrícula:',
+                                   'Gmail:',
+                                   'Data de Ingresso:',
+                                   'Skype:',
+                                   'Email Profissional:',
+                                   'Email Pessoal:',
+                                   'Tel. Profissional:',
+                                   'CPF:',
+                                   'RG:',
+                                   'Banco:',
+                                   'Agência:',
+                                   'Conta:'];
+             const tableSAnswers = [neoson.person.name+" "+neoson.person.surname+' / '+neoson.acronym,
+                                    neoson.person.birthday,
+                                    neoson.person.gender,
+                                    neoson.course.course_name,
+                                    neoson.matriculation_code,
+                                    neoson.person.email,
+                                    neoson.join_date,
+                                    neoson.skype,
+                                    neoson.emailProfissional,
+                                    neoson.emailPessoal,
+                                    neoson.telProfissional,
+                                    neoson.person.cpf,
+                                    neoson.person.rg,
+                                    neoson.banco,
+                                    neoson.agencia,
+                                    neoson.conta];
+            result = tableSubjects.map((content, index) => {
+                return <ProfileRow question={content}
+                                   answer={tableSAnswers[index]}>{content}</ProfileRow>
+            });
+        }
         return result;
     }
 
     componentDidMount() {
-        var userData = fetch('http://localhost:8000/auth/user/', { 
+        fetch(`${ApiUrls.api}neoson/1/`, {
             method: "GET",
             headers: authHeader()
         })
-        .then((response) => response.json())
-        .then((responseJSON) => {
-        // do stuff with responseJSON here...
-       this.setState({ username: responseJSON.username});
-        });
-
-        var userData = fetch('http://localhost:8000/contact/equipe/', { 
-            method: "GET",
-            headers: authHeader()
+        .then(response => response.json())
+        .then(responseJSON => {
+            console.log(responseJSON)
+            this.setState({
+                neoson: responseJSON
+            })
         })
-        .then((response) => response.json())
-        .then((responseJSON) => {
-            for(let i=0; i<responseJSON.ativos.length; i++) {
-                if(responseJSON.ativos[i].sigla == this.state.username) {
-                    this.setState({
-                        contact: responseJSON.ativos[i]
-                    })
-                    var userData = fetch('http://localhost:8000/contact/contatos/', { 
-                        method: "GET",
-                        headers: authHeader()
-                    })
-                    .then((response) => response.json())
-                    .then((responseJSON) => {
-                        for(let i=0; i<responseJSON.pessoas.length; i++) {
-                            if(responseJSON.pessoas[i].id == this.state.contact.id) {
-                                this.setState({
-                                    team_member: responseJSON.pessoas[i]
-                                })
-                            }
-                        }
-                    });
-                }
-            }
-        });
-        var contactData = fetch('http://localhost:8000/timecontrol/banco/', { 
-            method: "GET",
-            headers: authHeader(),
-        })
-        .then((response) => response.json())
-        .then((responseJSON) => {
-            for(let i=0; i<responseJSON.bancos.length; i++) {
-              if(responseJSON.bancos[i][0] == this.state.username) {
-                  this.setState({
-                    usernameHours: responseJSON.bancos[i]
-                  })
-              }
-            }
-        });
-
     }
 
     componentWillMount() {
@@ -158,7 +123,7 @@ class Profile extends Component {
         }
     }
 
-    testeFunc() {
+    logoColorHandler() {
         const select = document.querySelector('.post-office-select').value;
         const leader = leaderChip
         const project = projectChip 
@@ -170,24 +135,19 @@ class Profile extends Component {
         
         if(select == 1) {
             document.getElementById("post-office-photo").src=leader;
-        } 
-        else if(select == 2) {
+        } else if(select == 2) {
             document.getElementById("post-office-photo").src=project;
-        } 
-        else if(select == 4) {
+        } else if(select == 4) {
             document.getElementById("post-office-photo").src=marketing;
-        } 
-        else if(select == 3) {
+        } else if(select == 3) {
             document.getElementById("post-office-photo").src=dp;
-        } 
-        else  {
+        } else  {
             document.getElementById("post-office-photo").src=pattern;
         }
         
     }
 
     render() {
-        console.log(authHeader())
         return (
             <div>
                 <h3 className="profile-title">Meu Perfil</h3>
@@ -208,9 +168,8 @@ class Profile extends Component {
                             <div className="post-office-content">
                                 <div className="post-office-img"><img src={defaultChip} id="post-office-photo"/></div>
                                 <div className="type-post-office">
-                                    <select className="post-office-select" onChange={this.testeFunc}>
+                                    <select className="post-office-select" onChange={this.logoColorHandler}>
                                         <option disabled selected>Cargo</option>
-                                        <option value="">Apoio do PS 13</option>
                                         <option value="">Calouro 11</option>
                                         <option value="">Executor de Projeto 12</option>
                                         <option value="">Financeiro  6</option>
