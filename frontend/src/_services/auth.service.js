@@ -23,22 +23,19 @@ const login = async (username, password) => {
   });
   const userToken = await handleResponse(loginResponse);
   const Authorization = "Token " + userToken.token;
-  console.log(userToken)
-  console.log(Authorization)
   const userResponse = await fetch(apiUrls.userApi, {
     method: "GET",
     headers: {
-      Authorization
+      Authorization: Authorization
     }
-  });
+  })
   const user = await handleResponse(userResponse);
   localStorage.setItem(
     "user-key",
     JSON.stringify({
-      key: userToken.key
+      key: userToken.token
     })
   );
-
   return {
     username: user.username
   };

@@ -3,10 +3,11 @@ const port = process.env.API_PORT || 8000;
 
 const authApi = `${host}:${port}/api-auth/`;
 const contactApi = `${host}:${port}/contact/`;
+const api = `${host}:${port}/api/`
 
 const loginApi = `${authApi}login/`;
 const logoutApi = `${authApi}logout/`;
-const userApi = `${authApi}user/`;
+const userApi = `${authApi}users/`;
 const registerApi = `${authApi}registration/`;
 const neosonApi = username =>
   `${contactApi}list-create/neoson/?search=${username}`;
@@ -16,7 +17,8 @@ const apiUrls = {
   logoutApi,
   userApi,
   registerApi,
-  neosonApi
+  neosonApi,
+  api
 };
 
 export default apiUrls;
