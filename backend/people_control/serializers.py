@@ -25,6 +25,11 @@ class PersonSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['id', 'url', 'name', 'surname', 'birthday', 'email', 'rg',
                   'cpf', 'linkedin', 'observation', 'gender']
 
+class NeoPositionSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = NeoPosition
+        fields = ['id', 'url', 'name', 'description']
+
 class NeosonSerializer(serializers.HyperlinkedModelSerializer):
     person = PersonSerializer(read_only=True)
     person_id = serializers.PrimaryKeyRelatedField(source='person',
@@ -39,10 +44,15 @@ class NeosonSerializer(serializers.HyperlinkedModelSerializer):
     course_id = serializers.PrimaryKeyRelatedField(source='course',
                                                    queryset=Course.objects.all(),
                                                    write_only=True,)
+    neo_position = NeoPositionSerializer(read_only=True)
+    neo_position_id = serializers.PrimaryKeyRelatedField(source='neo_position',
+                                                         queryset=NeoPosition.objects.all(),
+                                                         write_only=True,)
     class Meta:
         model = Neoson
         fields = ['id', 'url', 'person', 'person_id', 'user', 'user_id',
-                  'acronym', 'join_date', 'course', 'course_id', 'matriculation_code', 'active']
+                  'acronym', 'join_date', 'course', 'course_id', 
+                  'neo_position', 'neo_position_id', 'matriculation_code', 'active']
 
 class AlumnusSerializer(serializers.HyperlinkedModelSerializer):
     neoson = NeosonSerializer(read_only=True)
@@ -66,11 +76,6 @@ class AdvisorSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Advisor
         fields = ['id', 'url', 'person', 'person_id', 'alumnus', 'alumnus_id', 'company']
-
-class NeoPositionSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = NeoPosition
-        fields = ['id', 'url', 'name', 'description']
 
 class AssumedNeoPositionSerializer(serializers.HyperlinkedModelSerializer):
     neoson = NeosonSerializer(read_only=True)
