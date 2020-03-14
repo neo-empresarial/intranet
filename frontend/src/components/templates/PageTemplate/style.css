@@ -1,0 +1,49 @@
+.page-template {
+  width: 80%;
+  height: 85%;
+  margin-top: 75px;
+  margin-left: 10%;
+  margin-right: 6%;
+  display: grid;
+  grid-template-rows: 8% 90%;
+  row-gap: 2%;
+}
+
+.page-template-title {
+  padding: 16px;
+  font-size: 22px;
+}
+
+@media screen and (max-width: 960px) {
+  .page-template {
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .page-template {
+    width: 80%;
+    height: 95%;
+    margin-top: 0px;
+    margin-left: 15%;
+    margin-right: 7%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .page-template {
+    width: 69%;
+    height: 95%;
+    margin-top: 0px;
+    margin-left: 22%;
+    margin-right: 5%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .page-template {
+    width: 70%;
+    height: 95%;
+    margin-top: 0px;
+    margin-left: 24%;
+  }
+}
