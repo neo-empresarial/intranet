@@ -8,7 +8,7 @@ class PageTemplate extends React.Component {
     return(
       <div className='page-template'>
         <div className='page-template-title'>{this.props.title}</div>
-        {this.props.children}
+        <div className='page-template-content'>{this.props.children}</div>
       </div>
     )
   }

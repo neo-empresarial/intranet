@@ -12,10 +12,17 @@
 .page-template-title {
   padding: 16px;
   font-size: 22px;
+  color: white; /* this is not the final color */
+  text-align: center;
+}
+
+.page-template-content {
+  padding: 16px;
 }
 
 @media screen and (max-width: 960px) {
   .page-template {
+    margin-top: 0px;
   }
 }
 
