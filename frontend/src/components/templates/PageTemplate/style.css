@@ -38,11 +38,11 @@
 
 @media screen and (max-width: 480px) {
   .page-template {
-    width: 69%;
+    width: 80%;
     height: 95%;
     margin-top: 0px;
-    margin-left: 22%;
-    margin-right: 5%;
+    margin-left: 10%;
+    margin-right: 0%;
   }
 }
 
