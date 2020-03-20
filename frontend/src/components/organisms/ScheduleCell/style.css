@@ -1,0 +1,6 @@
+.schedule-cell-grid {
+  display: grid;
+  grid-template-columns: 9fr 1fr; 
+  justify-items: center;
+  align-items: center;
+}
