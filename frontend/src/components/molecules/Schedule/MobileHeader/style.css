@@ -1,0 +1,14 @@
+.schedule-mobile-header {
+  width: 67%;
+  font-weight: bold;
+  border-left: 1px solid rgba(224, 224, 224, 1);
+}
+
+.schedule-mobile-header-grid {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+}
+
+.schedule-mobile-header-title {
+  margin: auto !important;
+}
