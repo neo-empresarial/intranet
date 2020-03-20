@@ -46,7 +46,7 @@ class ScheduleCell extends React.Component {
       <div className="schedule-cell-grid">
         <Typography>{cellText}</Typography>
         <IconButton size="small" onClick={this.handleDialog}>
-          <EditIcon fontSize="small" />
+          <EditIcon fontSize="small"/>
         </IconButton>
         <Dialog
           open={dialog}
