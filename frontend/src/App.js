@@ -35,7 +35,7 @@ class App extends Component {
   }
 
   updateDimensions(event) {
-    if (window.innerWidth <= 640 || (window.innerWidth >= 850 && window.innerWidth <=960)) {
+    if (window.innerWidth <= 1000) {
       !this.props.responsive && this.props.setResponsive(true);
       if (this.props.drawerOpen) {
         setTimeout(() => {
