@@ -43,6 +43,19 @@
     margin-top: 0px;
     margin-left: 10%;
     margin-right: 0%;
+    grid-template-rows: 7% 92%;
+    row-gap: 1%;
+  }
+
+  .page-template-title {
+    padding: 12px;
+    font-size: 22px;
+    color: white; /* this is not the final color */
+    text-align: center;
+  }
+
+  .page-template-content {
+    padding: 12px;
   }
 }
 
