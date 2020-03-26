@@ -129,3 +129,9 @@
   z-index: 2;
   height: 100vh;
 } */
+
+@media screen and (max-width: 1000px) {
+  .drawer-paper {
+    width: 230px;
+  }
+} 

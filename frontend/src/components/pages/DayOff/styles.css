@@ -321,10 +321,10 @@
     #show-accept { display: none; }
 }
 
-@media screen and (max-width: 720px) {
-    .drawer-paper {
+@media screen and (max-width: 1000px) {
+    /* .drawer-paper {
         width: 230px;
-    }
+    } */
 
     .calendar { 
         margin: 0 0.5%;
