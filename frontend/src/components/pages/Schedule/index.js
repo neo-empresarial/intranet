@@ -28,6 +28,17 @@ import PageTemplate from "../../templates/PageTemplate";
 /* Utils */
 import authHeader from "../../../_utils/auth-header";
 
+/* Material-UI styles */
+import { withStyles } from "@material-ui/core/styles";
+
+const styles = theme => ({
+  tableHeader: {
+    fontWeight: "bold",
+    width: "calc(100% / 6)",
+    borderRight: "1px solid rgba(224, 224, 224, 1)"
+  },
+})
+
 class ScheduleGrid extends React.Component {
   constructor(props) {
     super(props);
@@ -67,7 +78,6 @@ class ScheduleGrid extends React.Component {
         "Sexta-feira": {}
       },
     };
-
   }
 
   componentDidMount() {
@@ -108,7 +118,7 @@ class ScheduleGrid extends React.Component {
       });
     }
   };
-
+  
   render() {
     function createData(hour, monday, tuesday, wednesday, thursday, friday) {
       return { hour, monday, tuesday, wednesday, thursday, friday };
@@ -136,6 +146,8 @@ class ScheduleGrid extends React.Component {
       weekHours,
     } = this.state;
 
+    const { classes } = this.props;
+
     return (
       <PageTemplate title={"Meus Horários"}>
         <div className="schedule-container">
@@ -148,11 +160,8 @@ class ScheduleGrid extends React.Component {
                 <TableRow>
                   <TableCell
                     align="center"
-                    style={{
-                      fontWeight: "bold",
-                      width: "calc(100% / 3)",
-                      borderRight: "1px solid rgba(224, 224, 224, 1)"
-                    }}
+                    className={classes.tableHeader}
+                    id='hour-table-header'
                   >
                     Horário
                   </TableCell>
@@ -165,45 +174,32 @@ class ScheduleGrid extends React.Component {
                   <Hidden xsDown>
                     <TableCell
                     align="center"
-                    style={{
-                      fontWeight: "bold",
-                      width: "calc(100% / 6)"
-                    }}
+                    className={classes.tableHeader}
                   >
                     Segunda-feira
                   </TableCell>
                     <TableCell
                     align="center"
-                    style={{
-                      fontWeight: "bold",
-                      width: "calc(100% / 6)"
-                    }}
+                    className={classes.tableHeader}
                   >
                     Terça-feira
                   </TableCell>
                     <TableCell
                     align="center"
-                    style={{
-                      fontWeight: "bold",
-                      width: "calc(100% / 6)"
-                    }}
+                    className={classes.tableHeader}
                   >
                     Quarta-feira
                   </TableCell>
                     <TableCell
                     align="center"
-                    style={{
-                      fontWeight: "bold",
-                      width: "calc(100% / 6)"
-                    }}
+                    className={classes.tableHeader}
                   >
                     Quinta-feira
                   </TableCell>
                     <TableCell
-                    style={{
-                      fontWeight: "bold",
-                      width: "calc(100% / 6)"
-                    }}
+                    align="center"
+                    className={classes.tableHeader}
+                    id="last-table-header"
                   >
                     Sexta-feira
                   </TableCell>
@@ -255,4 +251,4 @@ class ScheduleGrid extends React.Component {
   }
 }
 
-export default ScheduleGrid;
+export default withStyles(styles)(ScheduleGrid);
