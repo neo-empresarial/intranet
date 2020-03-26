@@ -6,10 +6,7 @@
   border-right: none;
 }
 
-
-
-@media screen and (max-width: 600px) {
-
+@media screen and (max-width: 640px) {
   #hour-table-header {
     width: calc(100% / 3);
   }

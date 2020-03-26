@@ -4,18 +4,6 @@ import "./style.css";
 import moment from "moment";
 import "moment/locale/pt";
 
-/* Material-UI components */
-import {
-  Hidden,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
-} from "@material-ui/core";
-
 /* Molecules */
 import MobileHeader from '../../molecules/Schedule/MobileHeader';
 
@@ -27,6 +15,18 @@ import PageTemplate from "../../templates/PageTemplate";
 
 /* Utils */
 import authHeader from "../../../_utils/auth-header";
+
+/* Material-UI components */
+import {
+  Hidden,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+} from "@material-ui/core";
 
 /* Material-UI styles */
 import { withStyles } from "@material-ui/core/styles";
