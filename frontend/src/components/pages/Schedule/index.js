@@ -20,7 +20,7 @@ import {
 import MobileHeader from '../../molecules/Schedule/MobileHeader';
 
 /* Organisms */
-import ScheduleCell from "../../organisms/ScheduleCell";
+import ScheduleCell from "../../organisms/Schedule/ScheduleCell";
 
 /* Templates */
 import PageTemplate from "../../templates/PageTemplate";
