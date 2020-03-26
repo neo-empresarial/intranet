@@ -28,11 +28,10 @@
 
 @media screen and (max-width: 640px) {
   .page-template {
-    width: 80%;
+    width: 90%;
     height: 95%;
-    margin-top: 0px;
-    margin-left: 15%;
-    margin-right: 7%;
+    margin-left: 5%;
+    margin-right: 5%;
   }
 }
 
@@ -40,7 +39,6 @@
   .page-template {
     width: 80%;
     height: 95%;
-    margin-top: 0px;
     margin-left: 10%;
     margin-right: 0%;
     grid-template-rows: 7% 92%;
@@ -61,9 +59,9 @@
 
 @media screen and (max-width: 320px) {
   .page-template {
-    width: 70%;
+    width: 92%;
     height: 95%;
     margin-top: 0px;
-    margin-left: 24%;
+    margin-left: 4%;
   }
 }
