@@ -5,7 +5,7 @@ import moment from "moment";
 import "moment/locale/pt";
 
 /* Molecules */
-import MobileHeader from '../../molecules/Schedule/MobileHeader';
+import MobileHeader from "../../molecules/Schedule/MobileHeader";
 
 /* Organisms */
 import ScheduleCell from "../../organisms/Schedule/ScheduleCell";
@@ -25,7 +25,7 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Paper,
+  Paper
 } from "@material-ui/core";
 
 /* Material-UI styles */
@@ -36,8 +36,14 @@ const styles = theme => ({
     fontWeight: "bold",
     width: "calc(100% / 6)",
     borderRight: "1px solid rgba(224, 224, 224, 1)"
-  },
-})
+  }
+});
+
+const weekDay = Number(
+  moment()
+    .locale("pt")
+    .format("d")
+);
 
 class ScheduleGrid extends React.Component {
   constructor(props) {
@@ -51,11 +57,7 @@ class ScheduleGrid extends React.Component {
         4: "Quinta-feira",
         5: "Sexta-feira"
       },
-      weekDay: Number(
-        moment()
-          .locale("pt")
-          .format("d")
-      ),
+      weekDay: weekDay > 5 ? 1 : weekDay ,
       weekHours: {
         "Segunda-feira": {
           "07:30": { isWork: true, text: "NEO", operation: "+" },
@@ -76,7 +78,7 @@ class ScheduleGrid extends React.Component {
         "Quarta-feira": {},
         "Quinta-feira": {},
         "Sexta-feira": {}
-      },
+      }
     };
   }
 
@@ -118,7 +120,7 @@ class ScheduleGrid extends React.Component {
       });
     }
   };
-  
+
   render() {
     function createData(hour, monday, tuesday, wednesday, thursday, friday) {
       return { hour, monday, tuesday, wednesday, thursday, friday };
@@ -140,11 +142,7 @@ class ScheduleGrid extends React.Component {
       createData("18:00", "", "", "", "", "")
     ];
 
-    const {
-      weekDayDir,
-      weekDay,
-      weekHours,
-    } = this.state;
+    const { weekDayDir, weekDay, weekHours } = this.state;
 
     const { classes } = this.props;
 
@@ -161,48 +159,37 @@ class ScheduleGrid extends React.Component {
                   <TableCell
                     align="center"
                     className={classes.tableHeader}
-                    id='hour-table-header'
+                    id="hour-table-header"
                   >
                     Horário
                   </TableCell>
                   <Hidden smUp>
-                    <MobileHeader 
+                    <MobileHeader
                       headerTitle={weekDayDir[weekDay]}
                       decreaseWeekDay={this.decreaseWeekDay}
-                      increaseWeekDay={this.increaseWeekDay}/>
+                      increaseWeekDay={this.increaseWeekDay}
+                    />
                   </Hidden>
                   <Hidden xsDown>
+                    <TableCell align="center" className={classes.tableHeader}>
+                      Segunda-feira
+                    </TableCell>
+                    <TableCell align="center" className={classes.tableHeader}>
+                      Terça-feira
+                    </TableCell>
+                    <TableCell align="center" className={classes.tableHeader}>
+                      Quarta-feira
+                    </TableCell>
+                    <TableCell align="center" className={classes.tableHeader}>
+                      Quinta-feira
+                    </TableCell>
                     <TableCell
-                    align="center"
-                    className={classes.tableHeader}
-                  >
-                    Segunda-feira
-                  </TableCell>
-                    <TableCell
-                    align="center"
-                    className={classes.tableHeader}
-                  >
-                    Terça-feira
-                  </TableCell>
-                    <TableCell
-                    align="center"
-                    className={classes.tableHeader}
-                  >
-                    Quarta-feira
-                  </TableCell>
-                    <TableCell
-                    align="center"
-                    className={classes.tableHeader}
-                  >
-                    Quinta-feira
-                  </TableCell>
-                    <TableCell
-                    align="center"
-                    className={classes.tableHeader}
-                    id="last-table-header"
-                  >
-                    Sexta-feira
-                  </TableCell>
+                      align="center"
+                      className={classes.tableHeader}
+                      id="last-table-header"
+                    >
+                      Sexta-feira
+                    </TableCell>
                   </Hidden>
                 </TableRow>
               </TableHead>
@@ -220,7 +207,7 @@ class ScheduleGrid extends React.Component {
                     </TableCell>
                     <Hidden smUp>
                       <TableCell align="center" size="small">
-                        <ScheduleCell cellText={'ctc'} />
+                        <ScheduleCell cellText={"ctc"} />
                       </TableCell>
                     </Hidden>
                     <Hidden xsDown>
