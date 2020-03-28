@@ -34,11 +34,18 @@ class MobileHeader extends React.Component {
     };
   }
 
+  componentDidUpdate(prevProps) {
+    if(prevProps.weekDay !== this.props.weekDay)
+    this.setState({
+      anchorEl: null
+    })
+  }
+
   handleClick = event => {
     this.setState({
       anchorEl: event.currentTarget
-    })
-  }
+    });
+  };
 
   handleClose = () => {
     this.setState({
@@ -57,33 +64,40 @@ class MobileHeader extends React.Component {
             component={ArrowLeftIcon}
             onClick={this.props.decreaseWeekDay}
           />
-            <Typography
-              className={classes.tableTitle}
-              onClick={this.handleClick}
-            >
-              {this.props.headerTitle}
-            </Typography>
-            <Menu
-              id="simple-menu"
-              anchorEl={anchorEl}
-              keepMounted
-              open={Boolean(anchorEl)}
-              onClose={this.handleClose}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'center',
-              }}
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'center',
-              }}
-            >
-              <MenuItem onClick={this.handleClose}>Segunda-feira</MenuItem>
-              <MenuItem onClick={this.handleClose}>Terça-feira</MenuItem>
-              <MenuItem onClick={this.handleClose}>Quarta-feira</MenuItem>
-              <MenuItem onClick={this.handleClose}>Quinta-feira</MenuItem>
-              <MenuItem onClick={this.handleClose}>Sexta-feira</MenuItem>
-            </Menu>
+          <Typography className={classes.tableTitle} onClick={this.handleClick}>
+            {this.props.headerTitle}
+          </Typography>
+          <Menu
+            id="simple-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={this.handleClose}
+            anchorOrigin={{
+              vertical: "top",
+              horizontal: "center"
+            }}
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "center"
+            }}
+          >
+            <MenuItem value="1" onClick={ (event) => this.props.handleMenu(event) }>
+              Segunda-feira
+            </MenuItem>
+            <MenuItem value="2" onClick={ (event) => this.props.handleMenu(event) }>
+              Terça-feira
+            </MenuItem>
+            <MenuItem value="3" onClick={ (event) => this.props.handleMenu(event) }>
+              Quarta-feira
+            </MenuItem>
+            <MenuItem value="4" onClick={ (event) => this.props.handleMenu(event) }>
+              Quinta-feira
+            </MenuItem>
+            <MenuItem value="5" onClick={ (event) => this.props.handleMenu(event) }>
+              Sexta-feira
+            </MenuItem>
+          </Menu>
           <HeaderButton
             component={ArrowRightIcon}
             onClick={this.props.increaseWeekDay}

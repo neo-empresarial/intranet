@@ -90,6 +90,12 @@ class ScheduleGrid extends React.Component {
     }
   };
 
+  handleMenu = (event) => {
+    this.setState({
+      weekDay: event.target.value
+    })
+  }
+
   render() {
     function createData(hour, monday, tuesday, wednesday, thursday, friday) {
       return { hour, monday, tuesday, wednesday, thursday, friday };
@@ -137,6 +143,8 @@ class ScheduleGrid extends React.Component {
                       headerTitle={weekDayDir[weekDay]}
                       decreaseWeekDay={() => this.changeWeekDay(-1)}
                       increaseWeekDay={() => this.changeWeekDay(+1)}
+                      handleMenu={this.handleMenu}
+                      weekDay={weekDay}
                     />
                   </Hidden>
                   <Hidden xsDown>
