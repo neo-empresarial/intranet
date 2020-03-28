@@ -11,40 +11,38 @@ import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 /* Material-UI styles */
 import { withStyles } from "@material-ui/core/styles";
 
+/* Atoms */
+import HeaderButton from "../../../atoms/Schedule/HeaderButton";
+
 const styles = theme => ({
   tableHeader: {
-    width: '67%',
+    width: "67%"
   },
   tableTitle: {
-    fontWeight: 'bold',
-    fontSize: '0.875rem',
-    margin: 'auto'
-  },
-})
+    fontWeight: "bold",
+    fontSize: "0.875rem",
+    margin: "auto"
+  }
+});
 
 class MobileHeader extends React.Component {
   render() {
-
     const { classes } = this.props;
 
     return (
       <TableCell className={classes.tableHeader} align="center">
         <div className="schedule-mobile-header-grid">
-          <IconButton size="small">
-            <ArrowLeftIcon
-              fontSize="small"
-              onClick={this.props.decreaseWeekDay}
-            />
-          </IconButton>
+          <HeaderButton
+            component={ArrowLeftIcon}
+            onClick={this.props.decreaseWeekDay}
+          />
           <Typography className={classes.tableTitle}>
             {this.props.headerTitle}
           </Typography>
-          <IconButton size="small">
-            <ArrowRightIcon
-              fontSize="small"
-              onClick={this.props.increaseWeekDay}
-            />
-          </IconButton>
+          <HeaderButton
+            component={ArrowRightIcon}
+            onClick={this.props.increaseWeekDay}
+          />
         </div>
       </TableCell>
     );
