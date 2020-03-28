@@ -57,7 +57,7 @@ class ScheduleGrid extends React.Component {
         4: "Quinta-feira",
         5: "Sexta-feira"
       },
-      weekDay: weekDay > 5 ? 1 : weekDay ,
+      weekDay: weekDay > 5 ? 1 : weekDay,
       weekHours: {
         "Segunda-feira": {
           "07:30": { isWork: true, text: "NEO", operation: "+" },
@@ -93,30 +93,20 @@ class ScheduleGrid extends React.Component {
       });
   }
 
-  decreaseWeekDay = () => {
+  changeWeekDay = value => {
     const { weekDay } = this.state;
 
-    if (weekDay === 1) {
+    if (weekDay === 5 && value > 0) {
+      this.setState({
+        weekDay: 1
+      });
+    } else if (weekDay === 1 && value < 0) {
       this.setState({
         weekDay: 5
       });
     } else {
       this.setState({
-        weekDay: weekDay - 1
-      });
-    }
-  };
-
-  increaseWeekDay = () => {
-    const { weekDay } = this.state;
-
-    if (weekDay === 5) {
-      this.setState({
-        weekDay: 1
-      });
-    } else {
-      this.setState({
-        weekDay: weekDay + 1
+        weekDay: weekDay + value
       });
     }
   };
@@ -166,8 +156,8 @@ class ScheduleGrid extends React.Component {
                   <Hidden smUp>
                     <MobileHeader
                       headerTitle={weekDayDir[weekDay]}
-                      decreaseWeekDay={this.decreaseWeekDay}
-                      increaseWeekDay={this.increaseWeekDay}
+                      decreaseWeekDay={() => this.changeWeekDay(-1)}
+                      increaseWeekDay={() => this.changeWeekDay(+1)}
                     />
                   </Hidden>
                   <Hidden xsDown>
