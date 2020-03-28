@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 
 /* Material-UI components */
-import { IconButton, TableCell, Typography } from "@material-ui/core";
+import { Menu, MenuItem, TableCell, Typography } from "@material-ui/core";
 
 /* Material-UI icons */
 import ArrowLeftIcon from "@material-ui/icons/ArrowLeft";
@@ -26,7 +26,28 @@ const styles = theme => ({
 });
 
 class MobileHeader extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      anchorEl: false
+    };
+  }
+
+  handleClick = event => {
+    this.setState({
+      anchorEl: event.currentTarget
+    })
+  }
+
+  handleClose = () => {
+    this.setState({
+      anchorEl: null
+    });
+  };
+
   render() {
+    const { anchorEl } = this.state;
     const { classes } = this.props;
 
     return (
@@ -36,9 +57,33 @@ class MobileHeader extends React.Component {
             component={ArrowLeftIcon}
             onClick={this.props.decreaseWeekDay}
           />
-          <Typography className={classes.tableTitle}>
-            {this.props.headerTitle}
-          </Typography>
+            <Typography
+              className={classes.tableTitle}
+              onClick={this.handleClick}
+            >
+              {this.props.headerTitle}
+            </Typography>
+            <Menu
+              id="simple-menu"
+              anchorEl={anchorEl}
+              keepMounted
+              open={Boolean(anchorEl)}
+              onClose={this.handleClose}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'center',
+              }}
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'center',
+              }}
+            >
+              <MenuItem onClick={this.handleClose}>Segunda-feira</MenuItem>
+              <MenuItem onClick={this.handleClose}>Terça-feira</MenuItem>
+              <MenuItem onClick={this.handleClose}>Quarta-feira</MenuItem>
+              <MenuItem onClick={this.handleClose}>Quinta-feira</MenuItem>
+              <MenuItem onClick={this.handleClose}>Sexta-feira</MenuItem>
+            </Menu>
           <HeaderButton
             component={ArrowRightIcon}
             onClick={this.props.increaseWeekDay}
