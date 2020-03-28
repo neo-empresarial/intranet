@@ -58,27 +58,6 @@ class ScheduleGrid extends React.Component {
         5: "Sexta-feira"
       },
       weekDay: weekDay > 5 ? 1 : weekDay,
-      weekHours: {
-        "Segunda-feira": {
-          "07:30": { isWork: true, text: "NEO", operation: "+" },
-          "07:30": { isWork: true, text: "NEO", operation: "+" },
-          "07:30": { isWork: true, text: "NEO", operation: "+" },
-          "07:30": { isWork: true, text: "NEO", operation: "+" },
-          "07:30": { isWork: true, text: "NEO", operation: "+" },
-          "07:30": { isWork: true, text: "NEO", operation: "+" },
-          "07:30": { isWork: true, text: "NEO", operation: "+" },
-          "07:30": { isWork: true, text: "NEO", operation: "+" },
-          "07:30": { isWork: true, text: "NEO", operation: "+" },
-          "07:30": { isWork: true, text: "NEO", operation: "+" },
-          "07:30": { isWork: true, text: "NEO", operation: "+" },
-          "07:30": { isWork: true, text: "NEO", operation: "+" },
-          "07:30": { isWork: true, text: "NEO", operation: "+" }
-        },
-        "Terça-feira": {},
-        "Quarta-feira": {},
-        "Quinta-feira": {},
-        "Sexta-feira": {}
-      }
     };
   }
 
