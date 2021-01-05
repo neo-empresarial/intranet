@@ -12,7 +12,7 @@
     "@material-ui/styles": "^4.9.6",
     "@material-ui/system": "^4.9.6",
     "@opuscapita/react-searchbar": "^1.1.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.1.1",
     "canvasjs": "^1.8.1",
     "chart.js": "^2.7.3",
